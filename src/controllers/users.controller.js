@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const db = require("../models");
+const jwt = require("jsonwebtoken");
 
 // create Main model
 const User = db.users;
@@ -63,13 +64,23 @@ const loginUser = async (req, res) => {
         message: "Invalid password",
       });
     } else {
-      res.status(200).send({
+      const token = jwt.sign(
+        {
+          id: user.id,
+        },
+        process.env.TOKEN_SECRET_KEY,
+        {
+          expiresIn: "1h",
+        }
+      );
+      res.header("auth-token", token).send({
         message: "User logged in successfully",
         user: {
           userName: user.userName,
           email: user.email,
           role: user.role,
         },
+        token,
       });
     }
   }
