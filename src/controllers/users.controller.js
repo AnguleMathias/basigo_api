@@ -12,7 +12,7 @@ const createUser = async (req, res) => {
   const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
   let userInfo = {
-    userName: req.body.userName,
+    username: req.body.username,
     email: req.body.email,
     password: hashedPassword,
     role: req.body.role,
@@ -23,7 +23,7 @@ const createUser = async (req, res) => {
     res.status(200).send({
       message: "User created successfully",
       user: {
-        userName: user.userName,
+        username: user.username,
         email: user.email,
         role: user.role,
       },
@@ -76,7 +76,7 @@ const loginUser = async (req, res) => {
       res.header("auth-token", token).send({
         message: "User logged in successfully",
         user: {
-          userName: user.userName,
+          username: user.username,
           email: user.email,
           role: user.role,
         },

@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Users = sequelize.define("users", {
-    userName: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -33,12 +33,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     role: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notNull: {
-          msg: "Role is required",
-        },
-      },
     },
   });
 

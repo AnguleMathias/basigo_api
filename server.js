@@ -9,8 +9,12 @@ const app = express();
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 
-var corsOptions = {
-  origin: "http://localhost:8081",
+const corsOptions = {
+  origin: "*",
+
+  methods: ["GET", "POST", "PUT", "DELETE"],
+
+  allowedHeaders: ["Content-Type"],
 };
 
 // use cross origin resource sharing
