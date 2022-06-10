@@ -4,8 +4,8 @@ const router = express.Router();
 const leadsController = require("../controllers/leads.controller");
 const usersController = require("../controllers/users.controller");
 
-// users route
-router.post("/users", usersController.createUser);
+// auth routes
+router.post("/signup", usersController.createUser);
 
 // leads route
 router.post("/leads", leadsController.createLead);

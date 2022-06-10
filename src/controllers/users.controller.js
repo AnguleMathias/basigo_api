@@ -16,10 +16,10 @@ const createUser = async (req, res) => {
     const user = await User.create(userInfo);
     res.status(200).send(user);
   } catch (error) {
-    res.status(400).send(error);
+    res.status(400).send({ error: error.errors[0].message });
   }
 };
 
 module.exports = {
   createUser,
-}
+};
