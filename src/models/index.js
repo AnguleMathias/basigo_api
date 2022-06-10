@@ -37,7 +37,7 @@ db.customers = require("./customers.model.js")(sequelize, DataTypes);
 db.products = require("./products.model.js")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false }).then(() => {
-  console.log("Database & tables created!");
+  console.log("database connection has been established successfully!!");
 });
 
 module.exports = db;

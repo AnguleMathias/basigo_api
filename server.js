@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+require("dotenv").config();
 
 // create express app
 const app = express();
@@ -25,6 +26,10 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.send("Hello from Basigo service!");
 });
+
+// routes
+const router = require("./src/routes/routes");
+app.use("/", router);
 
 // listen for requests
 app.listen(PORT, () => {

@@ -1,8 +1,8 @@
 const express = require("express");
-const leadsController = require("../controllers/leadsController");
-const usersController = require("../controllers/usersController");
-
 const router = express.Router();
+
+const leadsController = require("../controllers/leads.controller");
+const usersController = require("../controllers/users.controller");
 
 // users route
 router.post("/users", usersController.createUser);
@@ -17,3 +17,5 @@ router.get("/leads/:id", leadsController.getLeadById);
 router.put("/leads/:id", leadsController.updateLead);
 
 router.delete("/leads/:id", leadsController.deleteLead);
+
+module.exports = router;
