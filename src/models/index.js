@@ -30,6 +30,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+// Models/tables
 db.users = require("./users.model.js")(sequelize, DataTypes);
 db.leads = require("./leads.model.js")(sequelize, DataTypes);
 db.customers = require("./customers.model.js")(sequelize, DataTypes);
@@ -38,3 +39,5 @@ db.products = require("./products.model.js")(sequelize, DataTypes);
 db.sequelize.sync({ force: false }).then(() => {
   console.log("Database & tables created!");
 });
+
+module.exports = db;
