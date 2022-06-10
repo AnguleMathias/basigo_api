@@ -14,7 +14,7 @@ const corsOptions = {
 
   methods: ["GET", "POST", "PUT", "DELETE"],
 
-  allowedHeaders: ["Content-Type"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 // use cross origin resource sharing
