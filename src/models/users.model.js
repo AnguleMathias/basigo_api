@@ -32,8 +32,10 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     role: {
-      type: DataTypes.STRING,
-    },
+      type: DataTypes.ENUM({
+        values: ["Admin", "User"],
+      }),
+    }
   });
 
   return Users;
