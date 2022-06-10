@@ -1,0 +1,30 @@
+{
+  "name": "basigo_api",
+  "version": "1.0.0",
+  "description": "basigo users service",
+  "main": "server.js",
+  "repository": "https://github.com/AnguleMathias/basigo_api.git",
+  "author": "Mathias Angule <angulemathias3@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.20.1"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.16"
+  }
+}
