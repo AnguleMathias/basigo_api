@@ -4,9 +4,14 @@ const { Sequelize, DataTypes } = require("sequelize");
 // sequelize references our new connection to the DB.
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
-  dialect: dbConfig.dialect,
   operatorsAliases: false,
-
+  dialect: "postgres",
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
   pool: {
     max: dbConfig.pool.max,
     min: dbConfig.pool.min,
