@@ -12,4 +12,4 @@ COPY package.json /usr/src/package.json
 COPY package-lock.json /usr/src/package-lock.json
 RUN npm install --no-progress
 
-CMD ["npm", "start"]
+CMD ["npm", "server"]

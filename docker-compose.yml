@@ -51,4 +51,3 @@ services:
     # Link to services running in other containers. The API code will be able to access the database via `nycsc-pg-db:5432`
     links:
       - nycsc-pg-db
-      - 
