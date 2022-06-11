@@ -1,9 +1,8 @@
 const dbConfig = require("../../config/dbConfig");
-const pg = require("pg");
 const { Sequelize, DataTypes } = require("sequelize");
 
 // sequelize references our new connection to the DB.
-const sequelize = new pg.Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
   operatorsAliases: false,
