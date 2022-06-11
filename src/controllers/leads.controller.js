@@ -11,7 +11,6 @@ const createLead = async (req, res) => {
     lastName: req.body.lastName,
     location: req.body.location,
     phone: req.body.phone,
-    dateCreated: new Date(),
     createdBy: req.body.createdBy,
   };
 
@@ -55,7 +54,6 @@ const updateLead = async (req, res) => {
     lastName: req.body.lastName,
     location: req.body.location,
     phone: req.body.phone,
-    dateUpdated: new Date(),
     updatedBy: req.body.updatedBy,
   };
 

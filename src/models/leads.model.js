@@ -20,13 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    dateCreated: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    dateUpdated: {
-      type: DataTypes.DATE,
-    },
     createdBy: {
       type: DataTypes.STRING,
       allowNull: false,

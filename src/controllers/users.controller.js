@@ -70,7 +70,7 @@ const loginUser = async (req, res) => {
         },
         process.env.TOKEN_SECRET_KEY,
         {
-          expiresIn: "1h",
+          expiresIn: "24h",
         }
       );
       res.header("Authorization", token).send({
