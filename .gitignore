@@ -1,11 +1,10 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
 /tmp
 /out-tsc
 yarn-error.log
-
+functions
 # dependencies
 /node_modules
 .env
