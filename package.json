@@ -9,7 +9,7 @@
   "scripts": {
     "start": "nodemon server",
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn install && yarn start"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn install && node server"
   },
   "jest": {
     "testEnvironment": "node",
