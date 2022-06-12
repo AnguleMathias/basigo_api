@@ -35,9 +35,13 @@ const createCustomer = async (req, res) => {
 
 // get all customer's customers
 const getAllLeadCustomers = async (req, res) => {
-  console.log("here now");
   try {
-    const customers = await Customers.findAll();
+    const customers = await Customers.findAll({
+      where: {
+        leadId: req.params.id,
+      },
+    });
+
     res.status(200).send(customers);
   } catch (error) {
     res.status(400).send(error);

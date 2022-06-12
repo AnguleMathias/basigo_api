@@ -27,7 +27,7 @@ router.delete("/leads/:id", verifyJWT, leadsController.deleteLead);
 // customer route
 router.post("/customer", verifyJWT, customerController.createCustomer);
 
-router.get("/customer", verifyJWT, customerController.getAllLeadCustomers);
+router.get("/lead/:id/customer", verifyJWT, customerController.getAllLeadCustomers);
 
 router.get("/customer/:id", verifyJWT, customerController.getCustomerById);
 
