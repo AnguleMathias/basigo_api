@@ -42,7 +42,13 @@ db.leads = require("./leads.model.js")(sequelize, DataTypes);
 db.customers = require("./customers.model.js")(sequelize, DataTypes);
 db.products = require("./products.model.js")(sequelize, DataTypes);
 
-db.sequelize.sync({ force: false }).then(() => {
+// associations
+db.leads.hasMany(db.customers, { onDelete: "CASCADE" });
+db.customers.belongsTo(db.leads, { onDelete: "CASCADE" });
+
+// db.leads.belongsToM
+
+db.sequelize.sync({ alter: true }).then(() => {
   console.log("Database connection successfull!!");
 });
 
