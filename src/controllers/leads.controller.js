@@ -2,16 +2,23 @@ const db = require("../models");
 
 // create Main model
 const Leads = db.leads;
+const Users = db.users;
 
 // create a lead
 const createLead = async (req, res) => {
+  const user = await Users.findOne({
+    where: {
+      id: req.user.id,
+    },
+  });
+
   const leadInfo = {
     firstName: req.body.firstName,
     middleName: req.body.middleName,
     lastName: req.body.lastName,
     location: req.body.location,
     phone: req.body.phone,
-    createdBy: req.body.createdBy,
+    createdBy: user.dataValues.email,
   };
 
   try {
@@ -48,13 +55,19 @@ const getLeadById = async (req, res) => {
 
 // update a lead
 const updateLead = async (req, res) => {
+  const user = await Users.findOne({
+    where: {
+      id: req.user.id,
+    },
+  });
+  
   const leadInfo = {
     firstName: req.body.firstName,
     middleName: req.body.middleName,
     lastName: req.body.lastName,
     location: req.body.location,
     phone: req.body.phone,
-    updatedBy: req.body.updatedBy,
+    updatedBy: user.dataValues.email,
   };
 
   try {
