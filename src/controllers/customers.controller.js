@@ -23,6 +23,7 @@ const createCustomer = async (req, res) => {
     productsOfInterest: req.body.productsOfInterest,
     createdBy: user.dataValues.email,
   };
+  console.log("customerInfo".customerInfo);
 
   try {
     const customer = await Customers.create(customerInfo);
@@ -34,6 +35,7 @@ const createCustomer = async (req, res) => {
 
 // get all customer's customers
 const getAllLeadCustomers = async (req, res) => {
+  console.log("here now");
   try {
     const customers = await Customers.findAll();
     res.status(200).send(customers);
