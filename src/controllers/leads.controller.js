@@ -47,7 +47,14 @@ const getLeadById = async (req, res) => {
         id: req.params.id,
       },
     });
-    res.status(200).send(lead);
+
+    if (!lead) {
+      res.status(400).send({
+        message: `Lead with id${req.params.id} does not exist`,
+      });
+    } else {
+      res.status(200).send(lead);
+    }
   } catch (error) {
     res.status(400).send(error);
   }
@@ -60,7 +67,7 @@ const updateLead = async (req, res) => {
       id: req.user.id,
     },
   });
-  
+
   const leadInfo = {
     firstName: req.body.firstName,
     middleName: req.body.middleName,

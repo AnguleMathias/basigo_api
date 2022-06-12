@@ -52,7 +52,14 @@ const getCustomerById = async (req, res) => {
         id: req.params.id,
       },
     });
-    res.status(200).send(customer);
+
+    if (!customer) {
+      res.status(400).send({
+        message: `Customer with id ${req.params.id} does not exist`,
+      });
+    } else {
+      res.status(200).send(customer);
+    }
   } catch (error) {
     res.status(400).send(error);
   }

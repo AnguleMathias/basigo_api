@@ -37,7 +37,14 @@ const getProductById = async (req, res) => {
         id: req.params.id,
       },
     });
-    res.status(200).send(product);
+
+    if (!product) {
+      res.status(400).send({
+        message: `Product with id ${req.params.id} does not exist`,
+      });
+    } else {
+      res.status(200).send(product);
+    }
   } catch (error) {
     res.status(400).send(error);
   }
