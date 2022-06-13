@@ -7,9 +7,9 @@
   "author": "Mathias Angule <angulemathias3@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/server",
+    "dev": "nodemon src/server",
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
-    "build": "NODE_ENV=production node src/server"
+    "start": "NODE_ENV=production node src/server"
   },
   "jest": {
     "testEnvironment": "node",
