@@ -5,14 +5,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   operatorsAliases: false,
-  dialect: "mysql",
-  // dialect: "postgres",
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
-  },
+  dialect: dbConfig.DIALECT,
   pool: {
     max: dbConfig.pool.max,
     min: dbConfig.pool.min,

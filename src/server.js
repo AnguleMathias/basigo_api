@@ -1,5 +1,4 @@
 const express = require("express");
-const serverless = require("serverless-http");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config();
@@ -17,10 +16,6 @@ const corsOptions = {
 
   allowedHeaders: ["Content-Type", "Authorization"],
 };
-
-// netlify
-const expressRouter = express.Router();
-app.use("/.netlify/functions/server", expressRouter);
 
 // use cross origin resource sharing
 app.use(cors(corsOptions));
@@ -46,4 +41,3 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
-module.exports.handler = serverless(app);
