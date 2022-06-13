@@ -8,6 +8,7 @@ functions
 # dependencies
 /node_modules
 .env
+.env.production
 
 # IDEs and editors
 /.idea
