@@ -1,0 +1,175 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Basigo",
+    "description": "Basigo users service API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "API for auth in the system"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/leads": {
+      "get": {
+        "tags": ["Leads"],
+        "summary": "Get all leads",
+        "security": {
+          "Authorization": {}
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Leads"
+            }
+          }
+        }
+      }
+    },
+    "/createLead": {
+      "post": {
+        "tags": ["Leads"],
+        "summary": "Create a lead",
+        "description": "Create a lead",
+        "parameters": [
+          {
+            "firstName": "John",
+            "middleName": "Doe",
+            "lastName": "Phillips",
+            "location": "Nairobi",
+            "phone": "0123456789",
+            "schema": {
+              "$ref": "#/definitions/Leads"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "New lead is created",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        }
+      }
+    },
+    "/leads/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of lead that we want to find",
+          "type": "integer"
+        }
+      ],
+      "put": {
+        "summary": "Update a lead with given Id",
+        "tags": ["Leads"],
+        "parameters": [
+          {
+            "name": "lead",
+            "in": "body",
+            "description": "Lead with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/updateLead"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lead is updated",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a lead with given Id",
+        "tags": ["Leads"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of lead that we want to delete",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lead is deleted",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Lead": {
+      "properties": {
+        "id": {
+          "type": "integer",
+          "uniqueItems": true
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "middleName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    },
+    "Leads": {
+      "type": "array",
+      "$ref": "#/definitions/Lead"
+    },
+    "updateLead": {
+      "required": ["firstName", "middleName", "lastName", "location", "phone"],
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "middleName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

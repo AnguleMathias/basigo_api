@@ -1,7 +1,7 @@
 {
   "name": "basigo_api",
   "version": "1.0.0",
-  "description": "basigo users service",
+  "description": "Basigo users service",
   "main": "server.js",
   "repository": "https://github.com/AnguleMathias/basigo_api.git",
   "author": "Mathias Angule <angulemathias3@gmail.com>",
@@ -27,13 +27,14 @@
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
+    "nodemon": "^2.0.16",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.20.1"
+    "sequelize": "^6.20.1",
+    "swagger-ui-express": "^4.4.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.1",
-    "jest": "^28.1.0",
-    "nodemon": "^2.0.16"
+    "jest": "^28.1.0"
   }
 }

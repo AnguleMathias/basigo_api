@@ -26,6 +26,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
+// swagger documentation
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("../swagger.json");
+
 // define a route handler for the default home page
 app.get("/", (req, res) => {
   res.send("Hello from Basigo service!");
@@ -34,6 +38,7 @@ app.get("/", (req, res) => {
 // routes
 const router = require("./routes/routes");
 app.use("/", router);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // listen for requests
 app.listen(PORT, () => {
