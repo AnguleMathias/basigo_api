@@ -22,7 +22,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     photo: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     annualEarning: {
       type: DataTypes.STRING,
@@ -31,12 +30,6 @@ module.exports = (sequelize, DataTypes) => {
     productsOfInterest: {
       type: DataTypes.STRING,
       allowNull: false,
-      get() {
-        return this.getDataValue("productsOfInterest").split(";");
-      },
-      set(val) {
-        this.setDataValue("productsOfInterest", val.join(","));
-      },
     },
     createdBy: {
       type: DataTypes.STRING,

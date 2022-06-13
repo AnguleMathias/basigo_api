@@ -22,14 +22,23 @@ const createCustomer = async (req, res) => {
     annualEarning: req.body.annualEarning,
     productsOfInterest: req.body.productsOfInterest,
     createdBy: user.dataValues.email,
+    leadId: req.body.leadId,
   };
-  console.log("customerInfo".customerInfo);
 
   try {
     const customer = await Customers.create(customerInfo);
     res.status(200).send(customer);
   } catch (error) {
-    res.status(400).send(error);
+    if (res.status(400)) {
+      res.status(400).send({
+        status: "Failed",
+        message: "Error while creating a customer. Try again",
+      });
+    } else {
+      res.status(500).send({
+        message: "Error while creating a customer",
+      });
+    }
   }
 };
 
@@ -86,6 +95,7 @@ const updateCustomer = async (req, res) => {
     annualEarning: req.body.annualEarning,
     productsOfInterest: req.body.productsOfInterest,
     updatedBy: user.dataValues.email,
+    leadId: req.body.leadId,
   };
 
   try {
