@@ -69,9 +69,6 @@ const loginUser = async (req, res) => {
           id: user.id,
         },
         process.env.TOKEN_SECRET_KEY,
-        {
-          expiresIn: "24h",
-        }
       );
       res.header("Authorization", token).send({
         message: "User logged in successfully",
