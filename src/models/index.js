@@ -47,7 +47,7 @@ db.customers.belongsTo(db.leads, { onDelete: "CASCADE" });
 
 // db.leads.belongsToM
 
-db.sequelize.sync({ force: false }).then(() => {
+db.sequelize.sync({ alter: true }).then(() => {
   console.log("Database connection successfull!!");
 });
 
